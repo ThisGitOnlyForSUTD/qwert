@@ -1,10 +1,18 @@
-
 export default defineNuxtConfig({
   modules: [
-    "@nuxt/image",
+    '@nuxt/image'
   ],
-    css: [
-      '@/assets/styles/scss/styles.scss',
-  ],
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+  vite: {
+    define: {
+      'process.env.DEBUG': false
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "@/assets/styles/scss/styles.scss";'
+        }
+      }
+    }
+  }
 })

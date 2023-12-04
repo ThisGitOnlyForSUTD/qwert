@@ -1,6 +1,6 @@
 <template>
   <header class="desktop-header container">
-    <logo class="desktop-header__logo" />
+    <app-logo class="desktop-header__logo"/>
     <ul class="desktop-header__list">
       <li
         v-for="item in navLinks"
@@ -15,11 +15,15 @@
         </nuxt-link>
       </li>
     </ul>
+    <div class="desktop-header__contacts">
+      <app-button text="Заказать" />
+    </div>
   </header>
 </template>
 
 <script setup lang="ts">
-import Logo from '~/components/ui/Logo/Logo.vue'
+import AppLogo from "~/components/ui/Logo/AppLogo.vue";
+import AppButton from "~/components/ui/Buttons/AppButton.vue";
 
 const navLinks = [
   { slug: 'main', name: 'Главная', link: '/' },
@@ -37,6 +41,7 @@ const navLinks = [
   display: flex;
   align-items: center;
   padding: 20px 0;
+  justify-content: space-between;
 
   &__logo {
     width: 100%;
@@ -45,8 +50,7 @@ const navLinks = [
 
   &__list {
     display: flex;
-    width: 100%;
-    gap: 10px;
+    gap: 20px;
     list-style-type:  none;
   }
 
@@ -54,6 +58,12 @@ const navLinks = [
     font-size: 16px;
     font-family: TTHovesPro;
     text-decoration: none;
+    color: #EEFBF5;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      color: #0AE1FF;
+    }
   }
 }
 </style>

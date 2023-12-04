@@ -11,17 +11,18 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxt/eslint-config": "^0.2.0",
     "@nuxt/image": "^1.0.0",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/eslint-module": "^4.1.0",
+    "eslint": "^8.53.0",
     "nuxt": "^3.8.1",
     "sass": "^1.69.5",
     "vue": "^3.3.8",
-    "vue-router": "^4.2.5",
-    "@nuxt/eslint-config": "^0.2.0",
-    "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "@nuxtjs/eslint-module": "^4.1.0",
-    "eslint": "^8.53.0"
+    "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@nuxt/http": "^0.6.4"
+    "@nuxt/http": "^0.6.4",
+    "defu": "^6.1.3"
   }
 }

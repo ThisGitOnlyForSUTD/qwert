@@ -15,13 +15,13 @@
     "nuxt": "^3.8.1",
     "sass": "^1.69.5",
     "vue": "^3.3.8",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/eslint-module": "^4.1.0",
+    "eslint": "^8.53.0"
   },
   "dependencies": {
-    "@nuxt/http": "^0.6.4",
-    "@pinia/nuxt": "^0.5.1",
-    "animate.css": "^4.1.1",
-    "puppeteer": "^21.5.1",
-    "puppeteer-core": "^21.5.1"
+    "@nuxt/http": "^0.6.4"
   }
 }

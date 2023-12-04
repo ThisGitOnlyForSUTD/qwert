@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-const text = 'Rassvet';
+const text = 'Rassvet'
 const displayedText = ref('')
 const index = ref(0)
 const showCursor = ref(true)
@@ -21,7 +21,7 @@ const printSymbol = () => {
   } else {
     toggleCursor()
   }
-};
+}
 
 const toggleCursor = () => {
   setInterval(() => {

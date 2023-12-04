@@ -1,25 +1,25 @@
 <template>
   <header class="desktop-header container">
     <logo class="desktop-header__logo" />
-      <ul class="desktop-header__list">
-        <li
-            class="desktop-header__item"
-            v-for="item in navLinks"
-            :key="item.slug"
+    <ul class="desktop-header__list">
+      <li
+        v-for="item in navLinks"
+        :key="item.slug"
+        class="desktop-header__item"
+      >
+        <nuxt-link
+          :to="item.link"
+          class="desktop-header__link"
         >
-          <nuxt-link
-              :to="item.link"
-              class="desktop-header__link"
-          >
-            {{ item.name }}
-          </nuxt-link>
-        </li>
-      </ul>
+          {{ item.name }}
+        </nuxt-link>
+      </li>
+    </ul>
   </header>
 </template>
 
 <script setup lang="ts">
-import Logo from "~/components/ui/Logo/Logo.vue";
+import Logo from '~/components/ui/Logo/Logo.vue'
 
 const navLinks = [
   { slug: 'main', name: 'Главная', link: '/' },
@@ -27,8 +27,8 @@ const navLinks = [
   { slug: 'about', name: 'О нас', link: '/about' },
   { slug: 'faq', name: 'Как мы работаем', link: '/faq' },
   { slug: 'calculate', name: 'Расчет стоимости', link: '/calculate' },
-  { slug: 'contacts', name: 'Контакты', link: '/contacts' },
-];
+  { slug: 'contacts', name: 'Контакты', link: '/contacts' }
+]
 </script>
 
 <style lang="scss" scoped>

@@ -42,6 +42,7 @@ onMounted(() => {
   display: inline-block;
   position: relative;
   font-family: Monument;
+  font-size: 1.2em;
 }
 
 .cursor {

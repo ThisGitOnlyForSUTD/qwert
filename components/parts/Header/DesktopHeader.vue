@@ -1,20 +1,22 @@
 <template>
   <header class="desktop-header container">
     <app-logo class="desktop-header__logo"/>
-    <ul class="desktop-header__list">
-      <li
-        v-for="item in navLinks"
-        :key="item.slug"
-        class="desktop-header__item"
-      >
-        <nuxt-link
-          :to="item.link"
-          class="desktop-header__link"
+    <nav class="desktop-header__nav">
+      <ul class="desktop-header__list">
+        <li
+          v-for="item in navLinks"
+          :key="item.slug"
+          class="desktop-header__item"
         >
-          {{ item.name }}
-        </nuxt-link>
-      </li>
-    </ul>
+          <nuxt-link
+            :to="item.link"
+            class="desktop-header__link"
+          >
+            {{ item.name }}
+          </nuxt-link>
+        </li>
+      </ul>
+    </nav>
     <div class="desktop-header__contacts">
       <app-button text="Заказать" />
     </div>
@@ -37,7 +39,7 @@ const navLinks = [
 
 <style lang="scss" scoped>
 .desktop-header {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -53,15 +55,18 @@ const navLinks = [
     max-width: 100px;
   }
 
-  &__list {
+  &__nav {
     mix-blend-mode: difference;
+  }
+
+  &__list {
     display: flex;
     gap: 20px;
     list-style-type:  none;
   }
 
   &__link {
-    font-size: 16px;
+    font-size: 1.1em;
     font-family: TTHovesPro;
     text-decoration: none;
     color: $white-color;

@@ -69,7 +69,7 @@ const question = ref([
     display: flex;
     flex-wrap: wrap;
     gap: 10px 15px;
-    justify-content: end;
+    justify-content: flex-end;
   }
 
 }

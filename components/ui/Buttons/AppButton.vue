@@ -1,14 +1,14 @@
 <template>
   <button :class="['app-button', outline ? 'outline' : 'base']">
-    <span>{{text}}</span>
+    <span>{{ text }}</span>
   </button>
 </template>
 
 <script setup lang="ts">
 const { text, outline } = withDefaults(defineProps<{ text: string, outline: boolean }>(), {
-  text: "Перейти",
-  outline: false,
-});
+  text: 'Перейти',
+  outline: false
+})
 </script>
 
 <style lang="scss" scoped>
@@ -48,4 +48,3 @@ const { text, outline } = withDefaults(defineProps<{ text: string, outline: bool
   }
 }
 </style>
-

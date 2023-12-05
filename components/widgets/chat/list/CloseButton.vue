@@ -34,6 +34,5 @@ defineEmits(['close'])
     fill: $white-color;
     transition: $transition fill;
   }
-  //color: ;
 }
 </style>

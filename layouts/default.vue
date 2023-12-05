@@ -1,7 +1,7 @@
 <template>
   <div>
     <desktop-header />
-    <div class="container">
+    <div>
       <slot />
     </div>
     <ChatForm />

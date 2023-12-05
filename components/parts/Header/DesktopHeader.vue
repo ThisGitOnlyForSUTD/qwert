@@ -37,6 +37,11 @@ const navLinks = [
 
 <style lang="scss" scoped>
 .desktop-header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 100;
   width: 100%;
   display: flex;
   align-items: center;
@@ -49,6 +54,7 @@ const navLinks = [
   }
 
   &__list {
+    mix-blend-mode: difference;
     display: flex;
     gap: 20px;
     list-style-type:  none;
@@ -58,11 +64,11 @@ const navLinks = [
     font-size: 16px;
     font-family: TTHovesPro;
     text-decoration: none;
-    color: #EEFBF5;
+    color: $white-color;
     transition: 0.3s ease-in-out;
 
     &:hover {
-      color: #0AE1FF;
+      color: $blue-color;
     }
   }
 }

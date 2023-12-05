@@ -25,20 +25,20 @@ const { text, outline } = withDefaults(defineProps<{ text: string, outline: bool
 }
 
 .base {
-  color: #080809;
-  background: #0AE1FF;
-  border: 1px solid #0AE1FF;
+  color: $black-color;
+  background: $blue-color;
+  border: 1px solid $blue-color;
   border-radius: 4px;
 
   &:hover {
     background: none;
-    color: #EBE5E1;
+    color: $white-color;
   }
 }
 
 .outline {
-  color: #EBE5E1;
-  border: 1px solid #EBE5E1;
+  color: $white-color;
+  border: 1px solid $white-color;
   border-radius: 4px;
   background: none;
 

@@ -1,11 +1,13 @@
 <template>
-  <div class="text-container">
+  <div @click="router.push('/')" class="text-container">
     <span class="text">{{ displayedText }}</span>
     <span v-if="showCursor" class="cursor">|</span>
   </div>
 </template>
 
 <script setup>
+import router from "#app/plugins/router.js";
+
 const text = 'Rassvet'
 const displayedText = ref('')
 const index = ref(0)
@@ -36,6 +38,7 @@ onMounted(() => {
 
 <style scoped>
 .text-container {
+  cursor: pointer;
   display: inline-block;
   position: relative;
   font-family: Monument;

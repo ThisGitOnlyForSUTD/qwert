@@ -11,52 +11,74 @@
       </div>
       <CloseButton @close="$emit('closeChat')" />
     </div>
-    <div class="list-content">
-      <div class="list-message list-message_outgoing">
-        kakoy vopros?
-      </div>
-      <div class="list-message">
-        takoy otvet!
-      </div>
-      <div class="list-message list-message_outgoing">
-        chto?
-      </div>
-      <div class="list-message">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ea fugiat ullam vel! Alias aspernatur debitis, deserunt eos fugit illo ipsam labore, laboriosam obcaecati perferendis quae quibusdam similique tempore vel?
-      </div>
-      <div class="list-message list-message_outgoing">
-        TbI dyra ?
+    <div ref="listWrapper" class="list-content hide-scroll">
+      <div
+        v-for="(item, id) in list"
+        :key="item.message + id"
+        class="list-message"
+        :class="{'list-message_outgoing': item.outgoing}"
+      >
+        {{ item.message }}
       </div>
     </div>
     <div
       class="list-question hide-scroll"
     >
-      <ChatChip v-for="item in question" :key="item.text">
+      <ChatChip
+        v-for="item in question"
+        :key="item.text"
+        @click="selectQuestion(item)"
+      >
         {{ item.text }}
       </ChatChip>
     </div>
   </div>
 </template>
 <script setup lang="ts">
+import { nextTick } from 'vue'
 import CloseButton from './CloseButton.vue'
 import ChatChip from '~/components/widgets/chat/list/ChatChip.vue'
 
 defineEmits(['closeChat'])
-
+interface IQuestion {
+  text:string,
+  answer: string
+}
+interface IMessage {
+  message:string,
+  outgoing: boolean
+}
 const question = ref([
-  { text: 'asda asdasd' },
-  { text: 'asdasdasd asas' },
-  { text: 'asdasdasd asdasdas asdasd asd' },
-  { text: '13123 1231123' },
-  { text: 'sadasdasas' },
-  { text: 'sdsad asdasda fsdgsdghsd' },
-  { text: 'sdsad asdasda fsdgsdghsd' },
-  { text: 'saadasdsad' },
-  { text: 'dfhdfh dfhdfhdf dfhdfh dfhdfh' },
-  { text: 'asdfsd dfgdf' },
-  { text: 'sdsad asdasda fsdgsdghsd' },
-  { text: 'sfgdfgdf fdgdfgdfgdfg' }
+  { text: 'asda asdasd', answer: 'asdasd asddas asda sdas dasdasdas asdas asdasdas' },
+  { text: 'asdasdasd asas', answer: 'asdasdas asdasda sdasdasda gfdhfgjh fgjfgjf gjfgjfg fgjfgj fgj' },
+  { text: 'asdasdasd asdasdas asdasd asd', answer: 'dfhdfh dfhdfhdfhdf dfhdfhdfhdf dhfhdfhdfhdfhdf dhfhdfhdfhdf dfhdfhdfh dfhdfhdfhdf' },
+  { text: '13123 1231123', answer: 'dfhdhfdh dfhdfhdfh dfhdfh dhdf hdfhdfhdhdfhjfrgjfgfkf' },
+  { text: 'sadasdasas', answer: 'sdfs dsdfhdfjhfgj fgjfgjdfgtsdf g' },
+  { text: 'sdsad asdasda fsdgsdghsd', answer: 'hjl; hjg; h; dfghsdhfsdfh dfhsdsfh dfhdfhd hdsfhdfh dfh' },
+  { text: 'sdsad asdasda fsdgsdghsd', answer: 'sdjhfhshdhh shdjfkljsdjjfkl;sjdj sjd jfjsdhfjkhsdkjhfjkhjkh jkshdj hjskdgfjksgdk ' },
+  { text: 'saadasdsad', answer: 'dfhsdfhdsf dfhdf hdfh fdshfdfhdfshafh' },
+  { text: 'dfhdfh dfhdfhdf dfhdfh dfhdfh', answer: 'dfh df hdfhdfhdfhd dhdfdfhdfhdfhdfh' },
+  { text: 'asdfsd dfgdf', answer: 'dfhdfhdf dfhfh sd3463 dfgdf' },
+  { text: 'sdsad asdasda fsdgsdghsd', answer: 'dfgdfgds dfhdf 5474' },
+  { text: 'sfgdfgdf fdgdfgdfgdfg', answer: 'sdfsdfsd fsdfsdfsdfs sdfsdfsdf' }
 ])
+
+const list = ref<IMessage[]>([])
+const listWrapper = ref<HTMLDivElement>()
+const scrollToBottom = () => {
+  nextTick(() => {
+    if (!listWrapper.value) { return }
+    listWrapper.value.scrollTop = listWrapper.value.scrollHeight
+  })
+}
+const selectQuestion = (question: IQuestion) => {
+  list.value.push({ message: `${question.text}?`, outgoing: true })
+  scrollToBottom()
+  setTimeout(() => {
+    list.value.push({ message: `${question.answer}?`, outgoing: false })
+    scrollToBottom()
+  }, 300)
+}
 </script>
 <style lang="scss" scoped>
 .list {
@@ -84,13 +106,15 @@ const question = ref([
     font-size: 0.7em;
   }
   &-content {
+    height: 100%;
     padding: 16px 12px;
     flex-grow: 1;
 
     display: flex;
     flex-direction: column;
     gap: 6px;
-
+    overflow-y: scroll;
+    overscroll-behavior: none;
   }
   &-question {
     padding: 16px 12px;

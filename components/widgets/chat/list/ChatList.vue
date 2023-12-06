@@ -12,7 +12,21 @@
       <CloseButton @close="$emit('closeChat')" />
     </div>
     <div class="list-content">
-      1
+      <div class="list-message list-message_outgoing">
+        kakoy vopros?
+      </div>
+      <div class="list-message">
+        takoy otvet!
+      </div>
+      <div class="list-message list-message_outgoing">
+        chto?
+      </div>
+      <div class="list-message">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ea fugiat ullam vel! Alias aspernatur debitis, deserunt eos fugit illo ipsam labore, laboriosam obcaecati perferendis quae quibusdam similique tempore vel?
+      </div>
+      <div class="list-message list-message_outgoing">
+        TbI dyra ?
+      </div>
     </div>
     <div
       class="list-question hide-scroll"
@@ -72,6 +86,11 @@ const question = ref([
   &-content {
     padding: 16px 12px;
     flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
   }
   &-question {
     padding: 16px 12px;
@@ -84,7 +103,18 @@ const question = ref([
     overscroll-behavior: none;
     border-top: 1px solid $white-color;
   }
+  &-message {
+    padding: 4px 6px;
+    background-color: $black-color;
+    border: 2px solid $white-color;
+    color: $white-color;
+    border-radius: 8px;
+    width: max-content;
+    max-width: 260px;
+    &_outgoing {
+      margin-left: auto;
+    }
+  }
 
 }
-
 </style>

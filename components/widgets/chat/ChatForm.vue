@@ -27,6 +27,7 @@ const isChatOpen = ref(false)
   right: 2%;
   min-height: 64px;
   min-width: 64px;
+  z-index: 1000;
   &-close {
     position: absolute;
     right: 0%;

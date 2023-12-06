@@ -1,8 +1,10 @@
 <template>
-  <section style="height: 500vh">
+  <section>
     <main-intro />
+    <app-gallery />
   </section>
 </template>
 <script setup lang="ts">
 import MainIntro from '~/components/parts/Intro/MainIntro.vue'
+import AppGallery from "~/components/parts/Gallery/AppGallery.vue"
 </script>

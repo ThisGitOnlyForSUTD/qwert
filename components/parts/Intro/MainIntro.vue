@@ -3,17 +3,42 @@
     <div class="intro__wrapper">
       <div class="glitch">
         <div :key="i" v-for="i in 5" class="glitch__item"></div>
-        <h1 class="glitch__title">Погрузитесь в мир web-технологий вместе с нами</h1>
-      </div>
-      <div class="intro__phone">
-        <img class="intro__img" src="@/public/images/iphone.png" alt="phone image">
-        <img class="intro__landing" src="@/public/images/works-patterns/phone_pattern.png" alt="phone landing">
+        <h2 class="glitch__title">Разработка эффективных сайтов, лендингов, CRM-систем для вашего бизнеса</h2>
+        <ul class="intro-list">
+          <li
+            v-for="(item, idx) in subtitles"
+            :key="item + 1"
+            :class="['intro-list__item', { 'fade-in': fadeIn }]"
+          >
+            {{ idx === subtitleIndex ? item : '' }}
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+const subtitles = [
+  'Я истребитель, небо — мой обитель, да, я прибыл, у-у',
+  'Тройная прибыль, syкa, этот трэп — твоя погибель',
+  'Я не хожу в Оутлет, я стрит атлет',
+  'Она держит мой кларнет и не хочет встать с колен',
+]
+
+const subtitleIndex = ref(0);
+const fadeIn = ref(true);
+
+onMounted(() => {
+  setInterval(() => {
+    fadeIn.value = false;
+
+    setTimeout(() => {
+      subtitleIndex.value = (subtitleIndex.value + 1) % subtitles.length;
+      fadeIn.value = true;
+    }, 500);
+  }, 5000);
+});
 </script>
 
 <style lang="scss" scoped>
@@ -26,34 +51,34 @@
   margin: 0;
 
   &__wrapper {
-    max-width: 1200px;
-    display: flex;justify-content: space-between;
-    align-items: center;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
   }
-  
-  &__img {
-    display: block;
-    overflow: hidden;
-    position: relative;
-    z-index: 10;
-  }
-  &__landing {
+
+  &::before {
+    content: "";
     position: absolute;
-    z-index: 9;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("@/public/images/infro-bg.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.1;
   }
 }
-
-.intro::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("@/public/images/infro-bg.gif");
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.3;
+.intro-list {
+  margin-top: 40px;
+  &__item {
+    font-size: 1.1em;
+    opacity: 0;
+    transition: opacity .4s ease-in-out;
+  }
+}
+.fade-in {
+  opacity: 0.7;
 }
 
 :root {
@@ -86,6 +111,7 @@
   max-width: 100%;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -145,14 +171,14 @@
   &__title {
     font-family: TTHovesPro;
     font-size: 50px;
-    max-width: 550px;
+    text-align: center;
     color: $white-color;
     position: relative;
     text-transform: uppercase;
 
     &:before,
     &:after {
-      content: 'WEB';
+      content: 'Разработка эффективных сайтов, лендингов, CRM-систем для вашего бизнеса';
       position: absolute;
       left: 0;
       top: 0;

@@ -79,14 +79,14 @@ input[type=number] {
 
 button {
   border: 0;
-  cursor: pointer;
+  cursor: none;
   text-transform: none;
   background: transparent;
   appearance: none;
   outline: none;
 
   &:hover {
-    cursor: pointer;
+    cursor: none;
   }
 }
 

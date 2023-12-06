@@ -28,7 +28,7 @@ const { text, outline } = withDefaults(defineProps<{ text: string, outline: bool
   color: $black-color;
   background: $blue-color;
   border: 1px solid $blue-color;
-  border-radius: 4px;
+  border-radius: $radius-4;
 
   &:hover {
     background: none;

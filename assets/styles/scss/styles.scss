@@ -1,5 +1,6 @@
 @import "variables";
 @import "mixins";
+@import "reset";
 @import "/assets/fonts/TTHovesPro/tthovespro";
 @import "/assets/fonts/Monument/Monument";
 
@@ -11,6 +12,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   overflow-x: hidden;
   font-weight: 300;
+  font-family: TTHovesPro;
 }
 
 *,
@@ -31,7 +33,7 @@ html {
 }
 
 body {
-  font-family: HovesPro;
+  font-family: TTHovesPro;
   font-size: 14px;
   background: $black-color;
   color: $white-color;

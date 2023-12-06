@@ -21,7 +21,7 @@ defineEmits(['close'])
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  cursor: none;
   transition: $transition background-color, $transition border-color;
   &:hover {
     background-color: $blue-color;

@@ -14,7 +14,9 @@
     <div class="list-content">
       1
     </div>
-    <div class="list-question">
+    <div
+      class="list-question hide-scroll"
+    >
       <ChatChip v-for="item in question" :key="item.text">
         {{ item.text }}
       </ChatChip>
@@ -32,7 +34,14 @@ const question = ref([
   { text: 'asdasdasd asas' },
   { text: 'asdasdasd asdasdas asdasd asd' },
   { text: '13123 1231123' },
-  { text: '1asd asd asd asd' }
+  { text: 'sadasdasas' },
+  { text: 'sdsad asdasda fsdgsdghsd' },
+  { text: 'sdsad asdasda fsdgsdghsd' },
+  { text: 'saadasdsad' },
+  { text: 'dfhdfh dfhdfhdf dfhdfh dfhdfh' },
+  { text: 'asdfsd dfgdf' },
+  { text: 'sdsad asdasda fsdgsdghsd' },
+  { text: 'sfgdfgdf fdgdfgdfgdfg' }
 ])
 </script>
 <style lang="scss" scoped>
@@ -70,6 +79,10 @@ const question = ref([
     flex-wrap: wrap;
     gap: 10px 15px;
     justify-content: flex-end;
+    max-height: 150px;
+    overflow-y: scroll;
+    overscroll-behavior: none;
+    border-top: 1px solid $white-color;
   }
 
 }

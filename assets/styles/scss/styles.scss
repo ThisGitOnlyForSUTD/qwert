@@ -120,3 +120,9 @@ p {
   opacity: 0;
 }
 
+.hide-scroll {
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+

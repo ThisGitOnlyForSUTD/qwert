@@ -42,9 +42,7 @@ const navLinks = [
   position: fixed;
   left: 0;
   right: calc(20px);
-  //margin: 0 auto;
   z-index: 100;
-  //width: 100%;
   display: flex;
   align-items: center;
   padding: 20px 0;

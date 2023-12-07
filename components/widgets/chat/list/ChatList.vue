@@ -36,7 +36,7 @@
 </template>
 <script setup lang="ts">
 import { nextTick } from 'vue'
-import CloseButton from './CloseButton.vue'
+import CloseButton from '~/components/ui/Buttons/CloseButton.vue'
 import ChatChip from '~/components/widgets/chat/list/ChatChip.vue'
 
 defineEmits(['closeChat'])

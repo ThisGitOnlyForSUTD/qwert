@@ -16,8 +16,8 @@ defineEmits(['close'])
   background-color: $black-color;
   border: 2px solid $white-color;
   border-radius: 50%;
-  height: 32px;
-  width: 32px;
+  height: 26px;
+  width: 26px;
   display: flex;
   justify-content: center;
   align-items: center;

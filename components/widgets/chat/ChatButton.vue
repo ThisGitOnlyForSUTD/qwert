@@ -35,7 +35,6 @@ defineEmits(['openChat'])
       display: block;
       height: 40px;
       fill: $black-color !important;
-
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <header class="desktop-header container">
-    <app-logo class="desktop-header__logo"/>
+    <app-logo class="desktop-header__logo" />
     <nav class="desktop-header__nav">
       <ul class="desktop-header__list">
         <li
@@ -24,8 +24,8 @@
 </template>
 
 <script setup lang="ts">
-import AppLogo from "~/components/ui/Logo/AppLogo.vue";
-import AppButton from "~/components/ui/Buttons/AppButton.vue";
+import AppLogo from '~/components/ui/Logo/AppLogo.vue'
+import AppButton from '~/components/ui/Buttons/AppButton.vue'
 
 const navLinks = [
   { slug: 'main', name: 'Главная', link: '/' },
@@ -41,13 +41,14 @@ const navLinks = [
 .desktop-header {
   position: fixed;
   left: 0;
-  right: 0;
-  margin: 0 auto;
+  right: calc(20px);
+  //margin: 0 auto;
   z-index: 100;
-  width: 100%;
+  //width: 100%;
   display: flex;
   align-items: center;
   padding: 20px 0;
+
   justify-content: space-between;
 
   &__logo {

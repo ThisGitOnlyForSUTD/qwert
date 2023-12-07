@@ -2,42 +2,41 @@
   <div
     class="cursor"
     :style="{ left: `${position.x}px`, top: `${position.y}px`, backgroundColor: cursorColor }"
-  >
-  </div>
+  />
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-const position = ref({ x: 0, y: 0 });
-const cursorColor = ref('transparent');
+const position = ref({ x: 0, y: 0 })
+const cursorColor = ref('transparent')
 
 const updateCursorPosition = (event) => {
-  position.value = { x: event.pageX, y: event.pageY };
-};
+  position.value = { x: event.pageX, y: event.pageY }
+}
 
 const changeCursorColor = () => {
-  cursorColor.value = 'rgba(0, 0, 0, 0.5)';
-};
+  cursorColor.value = 'rgba(0, 0, 0, 0.5)'
+}
 
 const resetCursorColor = () => {
-  cursorColor.value = 'transparent';
-};
+  cursorColor.value = 'transparent'
+}
 
 onMounted(() => {
-  document.addEventListener('mousemove', updateCursorPosition);
+  document.addEventListener('mousemove', updateCursorPosition)
   document.querySelectorAll('a, button, input, textarea').forEach((element) => {
-    element.addEventListener('mouseover', changeCursorColor);
-    element.addEventListener('mouseout', resetCursorColor);
-  });
-});
+    element.addEventListener('mouseover', changeCursorColor)
+    element.addEventListener('mouseout', resetCursorColor)
+  })
+})
 
 onBeforeUnmount(() => {
-  document.removeEventListener('mousemove', updateCursorPosition);
-});
+  document.removeEventListener('mousemove', updateCursorPosition)
+})
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .cursor {
   width: 20px;
   height: 20px;

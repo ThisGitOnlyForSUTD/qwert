@@ -3,18 +3,24 @@
     <transition name="fade">
       <div v-if="value" class="modal" @click="value = false">
         <div
-          class="modal-content"
-          :style="{width: width}"
+          class="modal-content container"
           @click.stop
         >
           <div class="modal-top">
             <div class="modal-title">
               <slot name="title" />
             </div>
-            <CloseButton />
+            <CloseButton
+              @click="value = false"
+            />
           </div>
           <div class="modal-body">
             <slot />
+          </div>
+          <div class="modal-bottom">
+            <div class="modal-action">
+              <slot name="action" />
+            </div>
           </div>
         </div>
       </div>
@@ -28,10 +34,8 @@ import CloseButton from '~/components/ui/Buttons/CloseButton.vue'
 const emit = defineEmits(['update:modelValue'])
 const props = withDefaults(defineProps<{
   modelValue: boolean,
-  width: string
 }>(), {
-  modelValue: false,
-  width: '300px'
+  modelValue: false
 })
 
 const value = computed({
@@ -52,7 +56,7 @@ const value = computed({
   bottom: 0px;
   left: 0px;
   right: 0px;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(8, 8, 9, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,17 +65,13 @@ const value = computed({
   }
 
   &-content {
-    background-color: $black-color;
     color:$white-color;
-    border: 2px solid $white-color;
-    border-radius: 4px;
-    max-height: 80%;
-    height: max-content;
-    overflow: hidden;
+    width: 100%;
+    height: 100vh;
 
     display: flex;
     flex-direction: column;
-    box-shadow: 2rem 1.5rem 0 #6262e5;
+    //box-shadow: 2rem 1.5rem 0 #6262e5;
 
     @include phone {
       width: 100% !important;
@@ -85,12 +85,18 @@ const value = computed({
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 16px 12px;
-    border-bottom: 1px solid $white-color;
+    padding: 40px;
+    font-size: 2em;
   }
   &-body {
     padding: 16px 16px;
     overflow-y: hidden;
+  }
+  &-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px 12px;
   }
 }
 

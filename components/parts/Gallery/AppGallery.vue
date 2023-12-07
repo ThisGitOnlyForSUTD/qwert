@@ -2,7 +2,7 @@
   <section class="gallery">
     <div class="gallery__wrapper container">
       <gallery-card
-          height="585px"
+        height="585px"
       />
       <div class="gallery__wrapper_main">
         <gallery-card
@@ -22,7 +22,7 @@
     <div class="gallery__animation">
       <client-only>
         <vue3-lottie
-          animationLink="https://lottie.host/ea76b809-6fe7-4344-8d73-cddbdfef5224/A77aTgwGj1.json"
+          animation-link="https://lottie.host/ea76b809-6fe7-4344-8d73-cddbdfef5224/A77aTgwGj1.json"
           :height="700"
           :width="700"
         />
@@ -31,7 +31,7 @@
   </section>
 </template>
 <script setup lang="ts">
-import GalleryCard from "~/components/parts/Gallery/GalleryCard.vue";
+import GalleryCard from '~/components/parts/Gallery/GalleryCard.vue'
 </script>
 
 <style lang="scss" scoped>

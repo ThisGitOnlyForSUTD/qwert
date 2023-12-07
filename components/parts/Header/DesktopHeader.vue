@@ -1,32 +1,46 @@
 <template>
-  <header class="desktop-header container">
-    <app-logo class="desktop-header__logo" />
-    <nav class="desktop-header__nav">
-      <ul class="desktop-header__list">
-        <li
-          v-for="item in navLinks"
-          :key="item.slug"
-          class="desktop-header__item"
-        >
-          <nuxt-link
-            :to="item.link"
-            class="desktop-header__link"
+  <div>
+    <MainModal v-model="value" :width="'800px'">
+      <template #title>
+        Крутой тайтлaaa
+      </template>
+      <text-input outline />
+    </MainModal>
+    <header class="desktop-header container">
+      <app-logo class="desktop-header__logo" />
+      <nav class="desktop-header__nav">
+        <ul class="desktop-header__list">
+          <li
+            v-for="item in navLinks"
+            :key="item.slug"
+            class="desktop-header__item"
           >
-            {{ item.name }}
-          </nuxt-link>
-        </li>
-      </ul>
-    </nav>
-    <div class="desktop-header__contacts">
-      <app-button text="Заказать" />
-    </div>
-  </header>
+            <nuxt-link
+              :to="item.link"
+              class="desktop-header__link"
+            >
+              {{ item.name }}
+            </nuxt-link>
+          </li>
+        </ul>
+      </nav>
+      <div class="desktop-header__contacts">
+        <app-button
+          text="Заказать"
+          @click="value = true"
+        />
+      </div>
+    </header>
+  </div>
 </template>
 
 <script setup lang="ts">
 import AppLogo from '~/components/ui/Logo/AppLogo.vue'
 import AppButton from '~/components/ui/Buttons/AppButton.vue'
+import MainModal from '~/components/ui/modals/MainModal.vue'
+import TextInput from '~/components/ui/Inputs/TextInput.vue'
 
+const value = ref(false)
 const navLinks = [
   { slug: 'main', name: 'Главная', link: '/' },
   { slug: 'cases', name: 'Кейсы', link: '/cases' },

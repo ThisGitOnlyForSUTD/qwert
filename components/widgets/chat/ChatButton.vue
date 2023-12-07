@@ -11,29 +11,30 @@
 defineEmits(['openChat'])
 </script>
 <style lang="scss">
+
 .chat {
   &-btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px;
+    width: 60px ;
     height: 60px;
-    border-radius: 50%;
-    background-color: $blue-color;
-    transition: $transition background-color,;
-    border: 3px solid transparent;
+    border-radius: 50% !important;
+    background-color: $blue-color !important;
+    transition: $transition background-color;
+    border: 3px solid transparent !important;
     cursor: pointer;
     &:hover {
-      background-color:$black-color;
-      border-color: $blue-color;
+      background-color:$black-color !important;
+      border-color: $blue-color !important;
       svg {
-        fill: $blue-color;
+        fill: $blue-color !important;
       }
     }
     &-icon {
       display: block;
       height: 40px;
-      fill: $black-color;
+      fill: $black-color !important;
 
     }
   }

@@ -1,0 +1,8 @@
+@import "variables";
+@import "mixins";
+@import "reset";
+@import "/assets/fonts/TTHovesPro/tthovespro";
+@import "/assets/fonts/Monument/Monument";
+
+// этот файл должен быть последним !!!!
+@import "./styles";

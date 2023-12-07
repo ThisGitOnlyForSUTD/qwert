@@ -1,8 +1,8 @@
-@import "variables";
-@import "mixins";
-@import "reset";
-@import "/assets/fonts/TTHovesPro/tthovespro";
-@import "/assets/fonts/Monument/Monument";
+//@import "variables";
+//@import "mixins";
+//@import "reset";
+//@import "/assets/fonts/TTHovesPro/tthovespro";
+//@import "/assets/fonts/Monument/Monument";
 
 html {
   -ms-text-size-adjust: 100%;
@@ -13,6 +13,8 @@ html {
   overflow-x: hidden;
   font-weight: 300;
   font-family: TTHovesPro;
+  overflow-y: scroll;
+  margin-right: calc(-1 * (100vw - 100%));
 }
 
 *,
@@ -115,9 +117,10 @@ p {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.3s ease-in-out;
+  transition: opacity 0.3s ease;
 }
-.fade-enter,
+
+.fade-enter-from,
 .fade-leave-to {
   opacity: 0;
 }

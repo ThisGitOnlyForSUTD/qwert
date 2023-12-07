@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-cursor/>
+    <app-cursor />
     <desktop-header />
     <div>
       <slot />
@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import DesktopHeader from '~/components/parts/Header/DesktopHeader.vue'
 import ChatForm from '~/components/widgets/chat/ChatForm.vue'
-import AppCursor from "~/components/ui/Effects/AppCursor.vue";
+import AppCursor from '~/components/ui/Effects/AppCursor.vue'
 </script>
 
 <style lang="scss" scoped>
